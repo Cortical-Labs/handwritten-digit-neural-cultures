@@ -2,7 +2,7 @@
 
 ## Overview
 
-This dataset contains approximately 85 GB of time-series electrophysiological data and associated metadata from experimental recordings (MNIST runs). The data captures the activity of human iPSC-derived neuronal networks interfaced with the CL1 biocomputing platform while actively engaged in a spatio-temporal handwritten digit recognition task.
+This dataset contains approximately 85 GB of time-series electrophysiological data and associated metadata across 52 experimental recordings (MNIST runs). The data captures the activity of human iPSC-derived neuronal networks interfaced with the CL1 biocomputing platform while actively engaged in a spatio-temporal handwritten digit recognition task.
 
 ## Data Index and Metadata
 
@@ -33,8 +33,6 @@ The manifest contains the following fields for each recording run:
 | `Random with Stim` | Control classification accuracy for randomized data, used as a baseline. |
 | `Biased Decoder` | Supplementary control metric and decoder baseline performance measurement. |
 | `Biased Decoder Random` | Supplementary control metric and decoder baseline performance measurement. |
-
-> **Manifest filename and header note:** The source documentation names the manifest `ael3906_Suppl. Excel_seq1_v1_2.csv`, while the supplied file inspected during README preparation is named `ael3906_Suppl. Excel_seq1_v1.csv`. That supplied file also contains trailing spaces in the raw headers `Chip ID ` and `Time Bin Accuracy Holdout over Time `. Confirm the publication filename and remove unintended header whitespace if appropriate before release.
 
 ## Directory Structure
 
