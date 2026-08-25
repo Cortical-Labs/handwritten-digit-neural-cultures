@@ -4,8 +4,6 @@
 
 This dataset contains approximately 85 GB of time-series electrophysiological data and associated metadata from experimental recordings (MNIST runs). The data captures the activity of human iPSC-derived neuronal networks interfaced with the CL1 biocomputing platform while actively engaged in a spatio-temporal handwritten digit recognition task.
 
-> **Recording-count discrepancy:** The source documentation describes 53 experimental recordings, but the supplied CSV manifest contains 52 data rows. This discrepancy is unresolved and should be corrected before publication by either adding the missing manifest row or updating the documented count.
-
 ## Data Index and Metadata
 
 The core structural organization, experimental conditions, and directory references for the computational runs are detailed in the primary manifest file:
