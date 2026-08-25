@@ -67,7 +67,7 @@ To navigate the dataset:
 2. Use the recording's `Chip ID` and `Date` values to locate its directory.
 3. Retrieve the numbered `.h5` chunks for that recording as required for analysis.
 
-The supplied documentation does not define the internal HDF5 schema, dataset keys, units, sampling rate, or a reference loading API. Those details should be documented separately before users are given schema-specific code examples.
+For comprehensive guides on the internal HDF5 schema, dataset keys, units, sampling rates, and how to load the .h5 files using the reference API, please visit [docs.corticallabs.com](https://docs.corticallabs.com).
 
 ## Citation and Publication
 
