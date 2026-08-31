@@ -2,7 +2,13 @@
 
 ## Overview
 
-This dataset contains approximately 85 GB of time-series electrophysiological data and associated metadata across 52 experimental recordings (MNIST runs). The data captures the activity of human iPSC-derived neuronal networks interfaced with the CL1 biocomputing platform while actively engaged in a spatio-temporal handwritten digit recognition task.
+Electrophysiological recordings from human iPSC-derived neuronal cultures performing a spatio-temporal handwritten digit classification task on the Cortical Labs CL1 biological computing platform.
+
+The dataset was generated to investigate biological reservoir computing and the effects of neural architecture, cellular lineage, network dynamics, and decoding methodology on computational performance. 
+Experimental preparations include neuronal monolayers, three-dimensional neural organoids, and modular cultures, including cortical and hippocampal neuronal lineages.
+
+The dataset contains approximately 85 GB of electrophysiological recordings and associated experimental and classification metadata across 52 experimental recordings. 
+Recordings are provided as chunked HDF5 files, accompanied by a CSV manifest describing each experimental run and its associated classification results.
 
 ## Data Index and Metadata
 
