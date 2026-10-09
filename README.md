@@ -14,7 +14,7 @@ Recordings are provided as chunked HDF5 files, accompanied by a CSV manifest des
 
 The core structural organization, experimental conditions, and directory references for the computational runs are detailed in the primary manifest file:
 
-`ael3906_Suppl. Excel_seq1_v1_2.csv`
+`file_names.csv`
 
 The CSV manifest contains the metadata required to map results and experimental conditions to specific recordings.
 
@@ -22,23 +22,23 @@ The CSV manifest contains the metadata required to map results and experimental 
 
 The manifest contains the following fields for each recording run:
 
-| Field | Description |
-| --- | --- |
-| `Sys-ID` | System identifier for the specific experimental run (for example, `sys-000`). |
-| `Chip ID` | Identifier for the specific Micro-Electrode Array chip utilized (for example, `MCS_1_43609_00001`). |
-| `Date` | Date the recording was captured. |
-| `Cell Type` | Specifies both the physical architecture and cellular lineage (for example, `Organoid` or `Organoid (Hippo)`). |
-| `Num Spikes` | Total number of neuronal spikes detected during the recording. |
-| `Real` | Classification accuracy for the spatio-temporal MNIST task under the corresponding evaluation paradigm. |
-| `Random` | Control classification accuracy for randomized data, used as a baseline. |
-| `Real with Stim` | Classification accuracy for the spatio-temporal MNIST task under the corresponding evaluation paradigm. |
-| `Time Bin Accuracy Holdout over Trials` | Temporal decoding accuracy using the corresponding holdout validation set. |
-| `Time Bin Accuracy Holdout over Time` | Temporal decoding accuracy using the corresponding holdout validation set. |
-| `Real One Shot` | Classification accuracy for the spatio-temporal MNIST task under the corresponding evaluation paradigm. |
-| `Time Bin Random` | Supplementary control metric and decoder baseline performance measurement. |
-| `Random with Stim` | Control classification accuracy for randomized data, used as a baseline. |
-| `Biased Decoder` | Supplementary control metric and decoder baseline performance measurement. |
-| `Biased Decoder Random` | Supplementary control metric and decoder baseline performance measurement. |
+| Field                                   | Description                                                                                                                                                                                                                                               |
+| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Sys-ID`                                | System identifier for the specific experimental run (for example, `sys-000`).                                                                                                                                                                             |
+| `Chip ID`                               | Identifier for the specific Micro-Electrode Array chip utilized (for example, `MCS_1_43609_00001`).                                                                                                                                                       |
+| `Date`                                  | Date the recording was captured.                                                                                                                                                                                                                          |
+| `Cell Type`                             | Specifies both the physical architecture and cellular lineage.  `Organoid` refers to 3D spherical cell layout, `PDMS` refers to 60-well Modular network configurations, `Monolayer` refers to a flat cell layout and `Hippo` refers to Hippocampal Cells. |
+| `Num Spikes`                            | Total number of neuronal spikes detected during the recording.                                                                                                                                                                                            |
+| `Real`                                  | Classification accuracy for the spatio-temporal MNIST task under the corresponding evaluation paradigm.                                                                                                                                                   |
+| `Random`                                | Control classification accuracy for randomized data, used as a baseline.                                                                                                                                                                                  |
+| `Real with Stim`                        | Classification accuracy for the spatio-temporal MNIST task under the corresponding evaluation paradigm.                                                                                                                                                   |
+| `Time Bin Accuracy Holdout over Trials` | Temporal decoding accuracy using the corresponding holdout validation set.                                                                                                                                                                                |
+| `Time Bin Accuracy Holdout over Time`   | Temporal decoding accuracy using the corresponding holdout validation set.                                                                                                                                                                                |
+| `Real One Shot`                         | Classification accuracy for the spatio-temporal MNIST task under the corresponding evaluation paradigm.                                                                                                                                                   |
+| `Time Bin Random`                       | Supplementary control metric and decoder baseline performance measurement.                                                                                                                                                                                |
+| `Random with Stim`                      | Control classification accuracy for randomized data, used as a baseline.                                                                                                                                                                                  |
+| `Biased Decoder`                        | Supplementary control metric and decoder baseline performance measurement.                                                                                                                                                                                |
+| `Biased Decoder Random`                 | Supplementary control metric and decoder baseline performance measurement.                                                                                                                                                                                |
 
 ## Directory Structure
 
@@ -49,7 +49,7 @@ Each recording directory contains exactly 1,000 chunked `.h5` files associated w
 ```text
 /dataset_root/
 |
-|-- ael3906_Suppl. Excel_seq1_v1_2.csv  # Master index and metadata
+|-- files_names.csv  # Master index and metadata
 |
 |-- [Chip_ID_1]/[Date_1]/               # Recording / MNIST Run 1
 |   |-- 0001.h5
