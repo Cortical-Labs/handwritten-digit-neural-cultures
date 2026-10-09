@@ -49,7 +49,7 @@ Each recording directory contains exactly 1,000 chunked `.h5` files associated w
 ```text
 /dataset_root/
 |
-|-- ael3906_Suppl. Excel_seq1_v1_2.csv  # Master index and metadata
+|-- files_names.csv  # Master index and metadata
 |
 |-- [Chip_ID_1]/[Date_1]/               # Recording / MNIST Run 1
 |   |-- 0001.h5
