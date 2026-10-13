@@ -7,8 +7,10 @@ Electrophysiological recordings from human iPSC-derived neuronal cultures perfor
 The dataset was generated to investigate biological reservoir computing and the effects of neural architecture, cellular lineage, network dynamics, and decoding methodology on computational performance. 
 Experimental preparations include neuronal monolayers, three-dimensional neural organoids, and modular cultures, including cortical and hippocampal neuronal lineages.
 
-The dataset contains approximately 85 GB of electrophysiological recordings and associated experimental and classification metadata across 52 experimental recordings. 
+The dataset contains approximately 150 GB of electrophysiological recordings and associated experimental and classification metadata across 52 experimental recordings. 
 Recordings are provided as chunked HDF5 files, accompanied by a CSV manifest describing each experimental run and its associated classification results.
+
+(See `Note on Digit Labels` below for more information about json files in some folders). 
 
 ## Data Index and Metadata
 
@@ -52,15 +54,15 @@ Each recording directory contains exactly 1,000 chunked `.h5` files associated w
 |-- files_names.csv  # Master index and metadata
 |
 |-- [Chip_ID_1]/[Date_1]/               # Recording / MNIST Run 1
-|   |-- 0001.h5
-|   |-- 0002.h5
+|   |-- *0000*.h5
+|   |-- *0001*.h5
 |   |-- ...
-|   `-- 1000.h5
+|   `-- *1000*.h5
 |
 `-- [Chip_ID_N]/[Date_N]/               # Recording / MNIST Run N
-    |-- 0001.h5
+    |-- *0000*.h5
     |-- ...
-    `-- 1000.h5
+    `-- *1000*.h5
 ```
 
 ## Access and Usage
@@ -74,6 +76,48 @@ To navigate the dataset:
 3. Retrieve the numbered `.h5` chunks for that recording as required for analysis.
 
 For comprehensive guides on the internal HDF5 schema, dataset keys, units, sampling rates, and how to load the .h5 files using the reference API, please visit [docs.corticallabs.com](https://docs.corticallabs.com).
+
+### Note on Digit Labels
+
+Some folders (e.g. `Chip_ID_1/Date_1/`) will have a json file in them. These files were used for some versions of the application to store information such as digit labels across all 1000 digits in that particular run. To find the json files you can run something like the following:
+
+```python
+#find json files for example folder
+file_path     = Path('/MCS_1_43593_00002/2025-03-12_20-59-56.318521/') #Example of/Chip_ID_1/Date_1/
+pattern_json  = f"{file_path}/*json*"
+json_files    = glob.glob(pattern_json) #check for json files in folder
+```
+
+You can then extract the labels as follows (for example):
+
+```python
+# Load labels from JSON files (if available)
+import json
+if len(json_files) > 0: #if json_files exist for this folder
+    with open(file, "r", encoding="utf-8") as file:
+        data = json.load(file)
+        y    = data['all_labels'])
+```
+
+**If a json file does not exist**, labels for each individual digit will exist inside a [Data Stream](https://docs.corticallabs.com/cl#DataStream) in the .h5 recordings, for example:
+
+```python
+#load the first .h5 recording
+recording = RecordingView(file_path+'*0000*.h5') #load first .h5
+
+# Print a list of available data streams
+data_stream_names = list(recording.data_streams.keys())
+
+#find appropriate data stream
+data_stream = data_stream_names[0] #e.g. use the first data stream
+
+#find labels by looping through items
+for timestamp, val in data_stream.items()
+    labels = val['labels'] #label for the first of 1000 digits in h5 files
+
+```
+
+The above can be optimized to load and extract all 1000 digit labels for each run in a loop, amongst other relevant data from the .h5 files. 
 
 ## Citation and Publication
 
