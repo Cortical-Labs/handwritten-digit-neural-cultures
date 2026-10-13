@@ -57,12 +57,12 @@ Each recording directory contains exactly 1,000 chunked `.h5` files associated w
 |   |-- *0000*.h5
 |   |-- *0001*.h5
 |   |-- ...
-|   `-- *1000*.h5
+|   `-- *0999*.h5
 |
 `-- [Chip_ID_N]/[Date_N]/               # Recording / MNIST Run N
     |-- *0000*.h5
     |-- ...
-    `-- *1000*.h5
+    `-- *0999h5
 ```
 
 ## Access and Usage
@@ -114,7 +114,6 @@ data_stream = data_stream_names[0] #e.g. use the first data stream
 #find labels by looping through items
 for timestamp, val in data_stream.items()
     labels = val['labels'] #label for the first of 1000 digits in h5 files
-
 ```
 
 The above can be optimized to load and extract all 1000 digit labels for each run in a loop, amongst other relevant data from the .h5 files. 
