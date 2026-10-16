@@ -7,7 +7,7 @@ Electrophysiological recordings from human iPSC-derived neuronal cultures perfor
 The dataset was generated to investigate biological reservoir computing and the effects of neural architecture, cellular lineage, network dynamics, and decoding methodology on computational performance. 
 Experimental preparations include neuronal monolayers, three-dimensional neural organoids, and modular cultures, including cortical and hippocampal neuronal lineages.
 
-The dataset contains approximately 150 GB of electrophysiological recordings and associated experimental and classification metadata across 52 experimental recordings. 
+The dataset contains approximately 142 GB of electrophysiological recordings and associated experimental and classification metadata across 52 experimental recordings. 
 Recordings are provided as chunked HDF5 files, accompanied by a CSV manifest describing each experimental run and its associated classification results.
 
 (See `Note on Digit Labels` below for more information about json files in some folders). 
